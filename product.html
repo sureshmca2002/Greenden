@@ -31,58 +31,56 @@
     <!--product search bar-->
     <section class="text-center">
         <h1 class="text-2xl font-bold mt-2">Our Products</h1>
-        <input class="border-2 border-black w-3/5 rounded-xl p-2 mt-4 type="search placeholder="Search For a Product..">
+        <input id="search" class="border-2 border-black w-3/5 rounded-xl p-2 mt-4" type="search" placeholder="Search For a Product..">
     </section>
 
      <!--products -->
    <section class="text-center">
     <p class="text-2xl font-bold">Best Sellers</p>
-    <div class="grid grid-cols-2 mt-8 gap-5 md:grid-cols-4 mt-20">
+    <div id="product_container" class="grid grid-cols-2 mt-8 gap-5 md:grid-cols-4 mt-20">
         <div>
             <img class="inline transform hover: hover:-translate-y-2" src="./images/1.jpg" alt="">
-            <p>Drainage Indoor Plant </p>
+            <h1>Drainage Indoor Plant </h1>
             <p> &#8377 400</p>
         </div>
         <div >
             <img class="inline transform hover: hover:-translate-y-2"  src="./images/2.jpg" alt="">
-            <p>Magnificent Money Plant 
-            </p>
+            <h1>Magnificent Money Plant 
+            </h1>
             <p> &#8377 450</p>
         </div>
         <div >
             <img class="inline transform hover: hover:-translate-y-2"  src="./images/3.jpg" alt="">
-            <p>Large Out Door Plant</p>
+            <h1>Large Out Door Plant</h1>
             <p> &#8377 700</p>
         </div>
         <div>
             <img class="inline transform hover: hover:-translate-y-2"  src="./images/4.jpg" alt="">
-            <p>Groot Plant</p>
+            <h1>Groot Plant</h1>
+            <p> &#8377 1100</p>
+        </div>
+        <div>
+            <img class="inline transform hover: hover:-translate-y-2" src="./images/1.jpg" alt="">
+            <h1>Drainage Indoor Plant </h1>
+            <p> &#8377 400</p>
+        </div>
+        <div >
+            <img class="inline transform hover: hover:-translate-y-2"  src="./images/2.jpg" alt="">
+            <h1>Magnificent Money Plant 
+            </h1>
+            <p> &#8377 450</p>
+        </div>
+        <div >
+            <img class="inline transform hover: hover:-translate-y-2"  src="./images/3.jpg" alt="">
+            <h1>Large Out Door Plant</h1>
+            <p> &#8377 700</p>
+        </div>
+        <div>
+            <img class="inline transform hover: hover:-translate-y-2"  src="./images/4.jpg" alt="">
+            <h1>Groot Plant</h1>
             <p> &#8377 1100</p>
         </div>
 
-    </div>
-    <div class="grid grid-cols-2 mt-8 gap-5 md:grid-cols-4 mt-20">
-        <div>
-            <img class="inline transform hover: hover:-translate-y-2" src="./images/1.jpg" alt="">
-            <p>Drainage Indoor Plant </p>
-            <p> &#8377 400</p>
-        </div>
-        <div >
-            <img class="inline transform hover: hover:-translate-y-2"  src="./images/2.jpg" alt="">
-            <p>Magnificent Money Plant 
-            </p>
-            <p> &#8377 450</p>
-        </div>
-        <div >
-            <img class="inline transform hover: hover:-translate-y-2"  src="./images/3.jpg" alt="">
-            <p>Large Out Door Plant</p>
-            <p> &#8377 700</p>
-        </div>
-        <div>
-            <img class="inline transform hover: hover:-translate-y-2"  src="./images/4.jpg" alt="">
-            <p>Groot Plant</p>
-            <p> &#8377 1100</p>
-        </div>
 
     </div>
 </section>
@@ -93,6 +91,33 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt iusto enim molestias explicabo cum rerum repudiandae placeat blanditiis, facilis fuga?</p>
     <p>@ 2025 Greenday.com</p>
 </section>
+
+
+
+
+<script>
+
+    var productcontainer = document.getElementById("product_container")
+    var search = document.getElementById("search")
+    var productlist=productcontainer.querySelectorAll("div")
+    search.addEventListener("keyup", function(){
+    var userenterval = event.target.value.toUpperCase()
+    for(count=0;count<productlist.length;count=count+1){
+        var productname = productlist[count].querySelector("h1").textContent
+        if(productname.toUpperCase().indexOf(userenterval)<0){
+            productlist[count].style.display="none"
+
+        }
+        else{
+             productlist[count].style.display="block"
+        }
+
+    }
+
+    
+})
+
+</script>
     
 </body>
 </html>
